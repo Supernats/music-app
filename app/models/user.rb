@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password
 
   before_validation :ensure_session_token
-  validates :email, :password_digest, :presence => true
-  validates :email, :uniqueness => true
+  validates :email, :password_digest, :session_token :presence => true
+  validates :email, :session_token, :uniqueness => true
 
   def self.find_by_credentials(email, secret)
     @user = User.find_by_email(email)
