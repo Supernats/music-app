@@ -7,12 +7,16 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     if !!@user
-      login_user!(@user)
       flash[:notices] = "Thanks for signing up!"
+      login_user!(@user)
     else
       flash[:errors] = "Oh, no! Those credentials won't work. Please try again."
       render :new
     end
   end
 
+  def show
+    @user = current_user
+    render :show
+  end
 end
