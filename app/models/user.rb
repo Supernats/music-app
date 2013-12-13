@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  # comment inserted to test commit issues
   attr_accessible :email, :password
 
   before_validation :ensure_session_token
