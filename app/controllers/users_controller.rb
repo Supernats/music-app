@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     if !!@user
       flash[:notices] = "Thanks for signing up!"
       login_user!(@user)
+      redirect_to user_url(user)
     else
       flash[:errors] = "Oh, no! Those credentials won't work. Please try again."
       render :new

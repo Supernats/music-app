@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     if !!@user
       flash[:notices] = "Welcome back!"
       login_user!(@user)
+      redirect_to user_url(user)
     else
       flash[:errors] = "Invalid login information"
       render :new
@@ -20,11 +21,9 @@ class SessionsController < ApplicationController
 
   def destroy
     @user = current_user
-    if logged_in?(@user)
-      flash[:notices] = "Successfully logged out."
-      logout_user!(@user)
-    end
-    nil
+    flash[:notices] = "Successfully logged out."
+    logout_user!(@user)
+    redirect_to new_session_url
   end
 
 end
