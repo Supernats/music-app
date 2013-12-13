@@ -17,7 +17,8 @@ development:
   encoding: unicode
   database: MusicApp_development
   pool: 5
-  username: MusicApp
+  host: localhost
+  username: appacademy
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +44,7 @@ test:
   encoding: unicode
   database: MusicApp_test
   pool: 5
-  username: MusicApp
+  username: appacademy
   password:
 
 production:
@@ -51,5 +52,5 @@ production:
   encoding: unicode
   database: MusicApp_production
   pool: 5
-  username: MusicApp
+  username: appacademy
   password:
