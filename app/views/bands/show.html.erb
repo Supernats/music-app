@@ -1,4 +1,6 @@
 <h1><%= @band.name %></h1>
+<p>
+  <%= link_to("Add a new album", new_band_album_url(@band)) %>
 <% unless @band.albums.empty? %>
-  <%= render 'shared/_list_band_albums', :albums = @band.albums %>
+  <%= render 'shared/_list_band_albums', :albums => @band.albums %>
 <% end%>
