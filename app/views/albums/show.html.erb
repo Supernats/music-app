@@ -1,0 +1,5 @@
+<h2><%= @album.name %></h2>
+<%= link_to("Add a new track", new_album_track_url(@album)) %>
+<% unless @album.tracks.nil? %>
+  <%= render 'shared/_list_album_tracks', :album => @album %>
+<% end %>
