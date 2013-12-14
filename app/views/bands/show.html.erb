@@ -1,0 +1,4 @@
+<h1><%= @band.name %></h1>
+<% unless @band.albums.empty? %>
+  <%= render 'shared/_list_band_albums', :albums = @band.albums %>
+<% end%>

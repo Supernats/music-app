@@ -1,0 +1,10 @@
+<ol>
+  <% tracks.each do |track| %>
+    <li><%= link_to("#{track.name}", track_url(track, track.album) %>
+      <%= button_to( %>
+      <%  "Delete track", %>
+      <%  track_url(track, track.album), %>
+      <%  :method => :delete) %>
+    </li>
+  <% end %>
+</ol>

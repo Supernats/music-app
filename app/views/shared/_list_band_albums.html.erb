@@ -1,0 +1,14 @@
+<ul>
+  <% @band.albums.each do |album| %>
+    <li><%= link_to("#{album.name}", album_url(album)) %>
+      <%= button_to( %>
+        <% "Delete album", %>
+        <% album_url(album), %>
+        <% :method => "delete") %>
+      <% unless album.tracks.nil? %>
+        <%= render 'shared/_list_album_tracks.html.erb',
+            :tracks => album.tracks %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
