@@ -34,10 +34,10 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     if @band.update_attributes(params[:band])
       @band.save!
-      flash[:notices] = "New bass player. Maybe he'll do less coke."
+      flash[:notices] = "This new name will really click with the kids."
       redirect_to band_url(@band)
     else
-      flash[:errors] = "Ringo never, Pete Best forever!"
+      flash[:errors] = "It's better this way. What would your fans think?"
       render :edit
     end
   end
