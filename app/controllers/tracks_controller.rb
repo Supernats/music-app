@@ -1,6 +1,7 @@
 class TracksController < ApplicationController
 
   def index
+    @tracks = Track.where("tracks.album_id = ?", params[:album_id])
     render :index
   end
 
@@ -9,6 +10,7 @@ class TracksController < ApplicationController
   end
 
   def show
+    @track = Track.find(params[:id])
     render :show
   end
 
@@ -44,7 +46,7 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @track.destroy!
     flash[:notices] = "#{@track.name} didn't make the cut."
-    redirect_to new_album_track(@track)
+    redirect_to new_album_track(@track.album, @track)
   end
 
 end

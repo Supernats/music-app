@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
+    @albums = Album.where("albums.band_id = ?", params[:band_id])
     render :index
   end
 
@@ -9,6 +10,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @album = Album.find(params[:id])
     render :show
   end
 
@@ -44,7 +46,7 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @album.destroy!
     flash[:notices] = "#{@album.name} is no more."
-    redirect_to new_band_album_url(@album)
+    redirect_to new_band_album_url(@album.band, @album)
   end
 
 end
